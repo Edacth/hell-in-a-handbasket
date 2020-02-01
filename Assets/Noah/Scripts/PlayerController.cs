@@ -4,49 +4,60 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] bool grounded;
-    Rigidbody rbody;
+    public float speed = 1f;
+    public float JumpVelocity = 5f;
+    public float FallMultiplier = 2.5f;
+    public float LowJumpMultiplier = 2f;
+    public Transform CameraHolderX;
+    public Transform CameraHolderY;
 
-    public float speed = 1;
-    public float speedGrounded = 1;
-    public float speedAir = 0.5f;
-    public float jumpHeight = 1;
+    Rigidbody rbody;
+    bool jumpframe = false;
+    bool jumphold = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        grounded = true;
         rbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(grounded && speed != speedGrounded)
-        {
-            speed = speedGrounded;
-        }
-        else if(!grounded && speed != speedAir)
-        {
-            speed = speedAir;
-        }
+        transform.Translate(CameraHolderX.localRotation * (new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * speed * Time.deltaTime), Space.Self);
 
-        if(Input.GetAxis("Jump") > 0 && grounded)
+        if (Input.GetButtonDown("Jump"))
         {
-            rbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+            //Debug.Log("jd");
+            jumpframe = true;
+            jumphold = true;
         }
-
+        if (Input.GetButtonUp("Jump"))
+        {
+            //Debug.Log("ju");
+            jumphold = false;
+        }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void FixedUpdate()
     {
-        gameObject.transform.parent = collision.transform;
-        grounded = true;
-    }
+        if (jumpframe)
+        {
+            //Debug.Log("je");
+            //rbody.AddForce(Vector3.up * JumpVelocity, ForceMode.Force);
+            rbody.velocity += Vector3.up * JumpVelocity;
+            jumpframe = false;
+        }
 
-    private void OnCollisionExit(Collision collision)
-    {
-        gameObject.transform.parent = null;
-        grounded = false;
+        if (rbody.velocity.y < 0)
+        {
+            //rbody.AddForce(Vector3.up * Physics.gravity.y * (FallMultiplier - 1) * Time.deltaTime);
+            rbody.velocity += Vector3.up * Physics.gravity.y * (FallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (rbody.velocity.y > 0 && !jumphold)
+        {
+            //rbody.AddForce(Vector3.up * Physics.gravity.y * (LowJumpMultiplier - 1) * Time.deltaTime);
+            rbody.velocity += Vector3.up * Physics.gravity.y * (LowJumpMultiplier - 1) * Time.deltaTime;
+        }
     }
 }
