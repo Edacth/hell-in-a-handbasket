@@ -39,7 +39,7 @@ public class CollectableManager : MonoBehaviour
         if (collected >= collRequirement && !triggered)
         {
             Debug.Log("TRIGGERED", this);
-            GateScript.instance.SetOpen(true);
+            GateScript.instance.SetOpen(false);
             triggered = true;
         }
     }

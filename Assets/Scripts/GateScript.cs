@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class GateScript : MonoBehaviour
 {
+    public Animator animator;
     public void SetOpen(bool isOpen)
     {
+        animator.SetBool("Open", isOpen);
         Debug.Log("Am I open? " + isOpen);
+    }
+
+    private void Start()
+    {
+        animator.SetBool("Open", true);
     }
 
     #region Singleton
