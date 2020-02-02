@@ -578,7 +578,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: ffb407952ad1f72439ada184bbe0d260, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f2c9b6a302d7e7748a3d2bfb64b15782,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -669,6 +669,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Demon_Rigged
       objectReference: {fileID: 0}
+    - target: {fileID: 447300708497785821, guid: f2c9b6a302d7e7748a3d2bfb64b15782,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: df5c46c9ffccf7244a786bca17fc9256, type: 2}
     - target: {fileID: 3783442859741532860, guid: f2c9b6a302d7e7748a3d2bfb64b15782,
         type: 3}
       propertyPath: m_LocalPosition.z
