@@ -7,8 +7,7 @@ public class MenuScript : MonoBehaviour
 {
     public string sceneName;
 
-    void Update()
-    {
+    void Update()    {
         
     }
 
