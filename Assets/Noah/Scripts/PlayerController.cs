@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     //public GameObject rig;
 
+    public ParticleSystem particleSystem;
+
     private void Awake()
     {
         playerSize = new Vector3(GetComponent<CapsuleCollider>().radius * 2, GetComponent<CapsuleCollider>().height, GetComponent<CapsuleCollider>().radius * 2);
@@ -65,6 +67,7 @@ public class PlayerController : MonoBehaviour
             jumpframe = true;
             jumphold = true;
             animator.SetTrigger("JumpFrame");
+            particleSystem.Play();
         }
         if (Input.GetButtonUp("Jump"))
         {
