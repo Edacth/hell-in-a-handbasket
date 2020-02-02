@@ -40,6 +40,7 @@ public class CollectableManager : MonoBehaviour
         {
             Debug.Log("TRIGGERED", this);
             GateScript.instance.SetOpen(true);
+            AudioScript.instance.PlayWin();
             triggered = true;
         }
         else if (collected < collRequirement && triggered)

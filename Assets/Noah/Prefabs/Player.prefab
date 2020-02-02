@@ -540,6 +540,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
   - {fileID: 8300000, guid: eea94f122bbfc0f4b824504e5ccf6191, type: 3}
+  - {fileID: 8300000, guid: b353e234e93c6524890c3ec85110f5ff, type: 3}
+  - {fileID: 8300000, guid: 7f2f14d5fddf73f40a6381044616e95f, type: 3}
+  - {fileID: 8300000, guid: 295c5bb3931614049b3b3ec9174e3f16, type: 3}
+  - {fileID: 8300000, guid: 526c82c8c26f20c4fa93a9c11895c297, type: 3}
+  - {fileID: 8300000, guid: 925e5a8ca2ae5a74b89da4b6db8b7b52, type: 3}
+  winSound: {fileID: 8300000, guid: 8e750cfff48e5ef488626540c017ce50, type: 3}
 --- !u!1 &8426856820493812324
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,7 +743,7 @@ PrefabInstance:
     - target: {fileID: 2476217855126171589, guid: 47e27913a45b88e4dacaaa41e9a236b8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2476217855126171589, guid: 47e27913a45b88e4dacaaa41e9a236b8,
         type: 3}
@@ -783,6 +789,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476217855126171589, guid: 47e27913a45b88e4dacaaa41e9a236b8,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476217855126171589, guid: 47e27913a45b88e4dacaaa41e9a236b8,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476217855126171589, guid: 47e27913a45b88e4dacaaa41e9a236b8,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6683244940846894440, guid: 47e27913a45b88e4dacaaa41e9a236b8,
         type: 3}
