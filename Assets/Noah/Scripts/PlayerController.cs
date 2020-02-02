@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 1f;
     public float JumpVelocity = 5f;
+    public int AirJumps = 1;
     public float GroundedSkin = 0.05f;
     public LayerMask mask;
     public float FallMultiplier = 2.5f;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     bool jumpframe = false;
     bool grounded;
     bool jumphold = false;
+    int airJumpCounter = 0;
 
     Vector3 playerSize;
     Vector3 boxSize;
@@ -44,8 +46,17 @@ public class PlayerController : MonoBehaviour
             PlayerModel.forward = CameraHolderX.localRotation * (new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
         }
 
-        if (Input.GetButtonDown("Jump") && grounded)
+        if (grounded)
         {
+            airJumpCounter = 0;
+        }
+
+        if (Input.GetButtonDown("Jump") && (grounded || airJumpCounter < AirJumps))
+        {
+            if (!grounded)
+            {
+                airJumpCounter++;
+            }
             //Debug.Log("jd");
             jumpframe = true;
             jumphold = true;
@@ -63,7 +74,7 @@ public class PlayerController : MonoBehaviour
         {
             //Debug.Log("je");
             //rbody.AddForce(Vector3.up * JumpVelocity, ForceMode.Force);
-            rbody.velocity += Vector3.up * JumpVelocity;
+            rbody.velocity += Vector3.up * JumpVelocity - Vector3.up * rbody.velocity.y;
             jumpframe = false;
             grounded = false;
         }
