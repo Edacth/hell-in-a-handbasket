@@ -30,7 +30,7 @@ public class Pusher : MonoBehaviour
     public struct TravelPoint
     {
         public Vector3 pos;
-
+        public float stayTime;
     }
 
     private void OnDrawGizmos()
