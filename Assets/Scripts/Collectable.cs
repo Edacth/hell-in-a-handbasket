@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
+    
     void Start()
     {
-
     }
 
     void FixedUpdate()
@@ -18,6 +18,9 @@ public class Collectable : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            
+
+            other.GetComponent<AudioScript>().PlaySlurp();
             CollectableManager.instance.IncreaseCount(1);
             gameObject.SetActive(false);
         }
