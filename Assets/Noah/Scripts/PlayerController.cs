@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask mask;
     public float FallMultiplier = 2.5f;
     public float LowJumpMultiplier = 2f;
+    public Transform PlayerModel;
     public Transform CameraHolderX;
     public Transform CameraHolderY;
 
@@ -37,6 +38,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         transform.Translate(CameraHolderX.localRotation * (new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * speed * Time.deltaTime), Space.Self);
+
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            PlayerModel.forward = CameraHolderX.localRotation * (new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
+        }
 
         if (Input.GetButtonDown("Jump") && grounded)
         {
