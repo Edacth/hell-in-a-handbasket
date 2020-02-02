@@ -59,13 +59,14 @@ public class PlayerController : MonoBehaviour
             //rbody.AddForce(Vector3.up * JumpVelocity, ForceMode.Force);
             rbody.velocity += Vector3.up * JumpVelocity;
             jumpframe = false;
+            grounded = false;
         }
         else
         {
             //Vector3 boxCenter = transform.position + Vector3.down * (playerSize.y + boxSize.y) * 0.5f;
             //grounded = (Physics.OverlapBox(boxCenter, boxSize * 0.5f, mask) != null);
-            Vector3 sphereCenter = transform.position + Vector3.down * (playerSize.y / 2 - playerSize.x + boxSize.y);
-            grounded = (Physics.OverlapSphere(sphereCenter, playerSize.x, mask) != null);
+            Vector3 sphereCenter = transform.position + Vector3.down * ((playerSize.y / 4) + boxSize.y);
+            grounded = (Physics.OverlapSphere(sphereCenter, playerSize.x / 2, mask).Length != 0);
         }
 
         if (rbody.velocity.y < 0)
