@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 1f;
     public float JumpVelocity = 5f;
+    public float GroundedSkin = 0.05f;
+    public LayerMask mask;
     public float FallMultiplier = 2.5f;
     public float LowJumpMultiplier = 2f;
     public Transform CameraHolderX;
@@ -13,7 +15,17 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody rbody;
     bool jumpframe = false;
+    bool grounded;
     bool jumphold = false;
+
+    Vector3 playerSize;
+    Vector3 boxSize;
+
+    private void Awake()
+    {
+        playerSize = new Vector3(GetComponent<CapsuleCollider>().radius * 2, GetComponent<CapsuleCollider>().height, GetComponent<CapsuleCollider>().radius * 2);
+        boxSize = new Vector3(playerSize.x, GroundedSkin, playerSize.z);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         transform.Translate(CameraHolderX.localRotation * (new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * speed * Time.deltaTime), Space.Self);
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && grounded)
         {
             //Debug.Log("jd");
             jumpframe = true;
@@ -47,6 +59,14 @@ public class PlayerController : MonoBehaviour
             //rbody.AddForce(Vector3.up * JumpVelocity, ForceMode.Force);
             rbody.velocity += Vector3.up * JumpVelocity;
             jumpframe = false;
+            grounded = false;
+        }
+        else
+        {
+            //Vector3 boxCenter = transform.position + Vector3.down * (playerSize.y + boxSize.y) * 0.5f;
+            //grounded = (Physics.OverlapBox(boxCenter, boxSize * 0.5f, mask) != null);
+            Vector3 sphereCenter = transform.position + Vector3.down * ((playerSize.y / 4) + boxSize.y);
+            grounded = (Physics.OverlapSphere(sphereCenter, playerSize.x / 2, mask).Length != 0);
         }
 
         if (rbody.velocity.y < 0)
