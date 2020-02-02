@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4120525696835753520}
   - component: {fileID: 1278018560698035668}
   m_Layer: 0
-  m_Name: Collectable
+  m_Name: Collectable 1
   m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4120525696835753523}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.4428, y: -6.6764, z: 0}
+  m_LocalPosition: {x: 0.000004626, y: -1.0983, z: 0}
   m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_Children: []
   m_Father: {fileID: 0}
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4120525696835753523}
-  m_Mesh: {fileID: -5199242572850997490, guid: afad4d4f3f2f35e42ac8a0094b10c19c, type: 3}
+  m_Mesh: {fileID: 9157747498086243385, guid: ad543a20078615049b6f69b2c59dc963, type: 3}
 --- !u!23 &4120525696835753526
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4f0475d5245be584e8d59453349b7700, type: 2}
+  - {fileID: 2100000, guid: 1fe4b6ad3b3a4684fbada6ce5fd91904, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -118,9 +118,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.3443396, g: 1, b: 0.915941, a: 1}
+  m_Color: {r: 0.38300994, g: 0.5377358, b: 0.5167729, a: 1}
   m_Intensity: 10
-  m_Range: 1.9
+  m_Range: 2.17
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
