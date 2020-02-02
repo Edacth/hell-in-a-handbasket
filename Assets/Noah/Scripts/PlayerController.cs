@@ -24,7 +24,8 @@ public class PlayerController : MonoBehaviour
     Vector3 playerSize;
     Vector3 boxSize;
 
-    Animator animator;
+    public Animator animator;
+    //public GameObject rig;
 
     private void Awake()
     {
@@ -36,7 +37,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rbody = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
+        //animator = rig.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -70,6 +71,11 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("ju");
             jumphold = false;
         }
+
+        if (animator.GetBool("Grounded") != grounded)
+        {
+            animator.SetBool("Grounded", grounded);
+        }
     }
 
     private void FixedUpdate()
@@ -81,7 +87,6 @@ public class PlayerController : MonoBehaviour
             rbody.velocity += Vector3.up * JumpVelocity - Vector3.up * rbody.velocity.y;
             jumpframe = false;
             grounded = false;
-            animator.SetBool("Grounded", grounded);
         }
         else
         {
@@ -89,7 +94,6 @@ public class PlayerController : MonoBehaviour
             //grounded = (Physics.OverlapBox(boxCenter, boxSize * 0.5f, mask) != null);
             Vector3 sphereCenter = transform.position + Vector3.down * ((playerSize.y / 4) + boxSize.y);
             grounded = (Physics.OverlapSphere(sphereCenter, playerSize.x / 2, mask).Length != 0);
-            animator.SetBool("Grounded", grounded);
         }
 
         if (rbody.velocity.y < 0)
