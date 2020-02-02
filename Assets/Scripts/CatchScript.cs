@@ -18,6 +18,7 @@ public class CatchScript : MonoBehaviour
         if (subject.transform.position.y < YLevel)
         {
             subject.transform.position = startPoint;
+            CollectableManager.instance.collected = 0;
             
             for (int i = 0; i < collectables.Length; i++)
             {

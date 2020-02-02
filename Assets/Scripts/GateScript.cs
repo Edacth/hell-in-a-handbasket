@@ -13,7 +13,7 @@ public class GateScript : MonoBehaviour
 
     private void Start()
     {
-        animator.SetBool("Open", true);
+        animator.SetBool("Open", false);
     }
 
     #region Singleton
