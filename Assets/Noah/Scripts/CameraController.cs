@@ -21,8 +21,8 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        mouseX += Input.GetAxis("Mouse X");
-        mouseY -= Input.GetAxis("Mouse Y");
+        mouseX += Input.GetAxis("Mouse X") * cameraSensitivity;
+        mouseY -= Input.GetAxis("Mouse Y") * cameraSensitivity;
         mouseY = Mathf.Clamp(mouseY, -35, 80);
 
         transform.LookAt(cameraHolderX);
