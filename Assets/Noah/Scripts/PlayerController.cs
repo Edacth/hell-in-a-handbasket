@@ -62,8 +62,10 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Vector3 boxCenter = transform.position + Vector3.down * (playerSize.y + boxSize.y) * 0.5f;
-            grounded = (Physics.OverlapBox(boxCenter, boxSize * 0.5f) != null);
+            //Vector3 boxCenter = transform.position + Vector3.down * (playerSize.y + boxSize.y) * 0.5f;
+            //grounded = (Physics.OverlapBox(boxCenter, boxSize * 0.5f, mask) != null);
+            Vector3 sphereCenter = transform.position + Vector3.down * (playerSize.y / 2 - playerSize.x + boxSize.y);
+            grounded = (Physics.OverlapSphere(sphereCenter, playerSize.x, mask) != null);
         }
 
         if (rbody.velocity.y < 0)
