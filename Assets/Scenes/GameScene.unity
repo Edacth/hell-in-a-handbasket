@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 7648efce8e9a9d74483fd5fb98789943,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -650,6 +650,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.0005
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 9662fd5a79a4bc84b8f1fd8f5800609c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -1360991219368177298, guid: 2ae3f4aca3632d14b9e14e95955f3c37,
+        type: 3}
     - target: {fileID: -927199367670048503, guid: 9662fd5a79a4bc84b8f1fd8f5800609c,
         type: 3}
       propertyPath: m_Name
