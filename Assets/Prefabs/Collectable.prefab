@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1278018560698035668}
   m_Layer: 0
   m_Name: Collectable
-  m_TagString: Untagged
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,7 +107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3511cab9b1353b74eb26a433914f8fbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClips: []
 --- !u!108 &1278018560698035668
 Light:
   m_ObjectHideFlags: 0
