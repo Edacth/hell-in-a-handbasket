@@ -427,6 +427,7 @@ MonoBehaviour:
   PlayerModel: {fileID: 302871152}
   CameraHolderX: {fileID: 8426856819835913419}
   CameraHolderY: {fileID: 8426856820493812325}
+  animator: {fileID: 3166231813305013898}
 --- !u!82 &1780155289
 AudioSource:
   m_ObjectHideFlags: 0
@@ -580,6 +581,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 143cf96d6b99db8409cf92f966d4208e, type: 2}
+    - target: {fileID: -6057140222963153312, guid: f2c9b6a302d7e7748a3d2bfb64b15782,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f2c9b6a302d7e7748a3d2bfb64b15782,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -705,6 +711,12 @@ PrefabInstance:
 --- !u!4 &5006512735358467056 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: f2c9b6a302d7e7748a3d2bfb64b15782,
+    type: 3}
+  m_PrefabInstance: {fileID: 588976362}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3166231813305013898 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: f2c9b6a302d7e7748a3d2bfb64b15782,
     type: 3}
   m_PrefabInstance: {fileID: 588976362}
   m_PrefabAsset: {fileID: 0}
